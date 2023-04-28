@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+:root {
+    --clr-heading: rgb(0, 0, 0);
+    --clr-body-bg: rgb(223, 222, 222);
+    --clr-text: rgb(14, 13, 13);
+    --clr-card-bg: rgb(255, 255, 255);
+}
+
+body {
+    line-height: 1.5;
+    color: var(--clr-text);
+    background-color: var(--clr-body-bg);
+}
+
+h1,
+h2,
+h4 {
+    color: var(--clr-heading);
+    line-height: 1.1;
+    font-weight: 900;
+}
+
+p {
+    margin: 1rem 0;
+    line-height: 2;
+    font-size: 1rem;
+}
+
+.container {
+    width: 90%;
+    padding: 1rem;
+    margin-inline: auto;
+}
+
+.content {
+    width: 100%;
+}
+
+.card-wrapper {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+}
+
+.card {
+    background-color: var(--clr-card-bg);
+    display: flex;
+    flex-direction: column;
+    width: 27vw;
+    padding: 30px 30px;
+    margin: 20px 0;
+    border-radius: 10px;
+    border-top: 5px solid var(--clr-heading);
+
+}
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.color-picker > fieldset {
+    border: 0;
+    display: flex;
+    gap: 2rem;
+    width: fit-content;
+    background-color: #fff;
+    padding: 1rem 3rem;
+    margin-inline: auto;
+    border-radius: 0 0 1rem 1rem;
+}
+
+.color-picker input[type='radio'] {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    outline: 3px solid var(--radio-color, currentColor);
+    outline-offset: 2px;
+    border-radius: 50%;
+}
+
+.color-picker input[type='radio']:checked {
+    background-color: var(--radio-color);
+}
+
+input[type='radio']#pink {
+    --radio-color: pink;
+}
+
+input[type='radio']#blue {
+    --radio-color: blue;
+}
+input[type='radio']#green {
+    --radio-color: green;
+}
+input[type='radio']#dark {
+    --radio-color: #232323;
+}
+input[type='radio']#light {
+    --radio-color: grey;
+}
+
+:root:has(#light:checked) {
+    --clr-heading: rgb(0, 0, 0);
+    --clr-body-bg: rgb(218, 215, 215);
+    --clr-text: rgb(14, 13, 13);
+    --clr-card-bg: rgb(255, 255, 255);
+}
+
+:root:has(#pink:checked) {
+    --clr-heading: rgb(126, 13, 73);
+    --clr-body-bg: rgb(243, 188, 237);
+    --clr-text: rgb(14, 13, 13);
+    --clr-card-bg: rgb(246, 232, 234);
+}
+
+:root:has(#blue:checked) {
+    --clr-heading: rgb(44, 42, 112);
+    --clr-body-bg: rgb(191, 197, 251);
+    --clr-text: rgb(14, 13, 13);
+    --clr-card-bg: rgb(218, 243, 251);
+}
+
+:root:has(#green:checked) {
+    --clr-heading: rgb(4, 97, 4);
+    --clr-body-bg: rgb(182, 254, 182);
+    --clr-text: rgb(14, 13, 13);
+    --clr-card-bg: rgb(217, 252, 217);
+}
+
+:root:has(#dark:checked) {
+    --clr-heading: rgb(228, 223, 223);
+    --clr-body-bg: black;
+    --clr-text: white;
+    --clr-card-bg: rgb(53, 52, 52);
+}
+
+@media(max-width: 780px) {
+    .card-container {
+        grid-template-columns: repeat(2, 50%);
+    }
+    .card {
+        width: 40vw;
+    }
+}
+
+@media(max-width: 410px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+    .card {
+        width: 100%;
+    }
+}
